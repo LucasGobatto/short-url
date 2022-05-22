@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "target": "es5",
+    "module": "commonjs",
+    "lib": ["dom", "es6"],
+    "strictPropertyInitialization": false,
+    "outDir": "dist",
+    "rootDir": "src",
+    "removeComments": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "@core": ["./core"],
+      "@core/*": ["./core/*"],
+      "@data": ["./data"],
+      "@data/*": ["./data/*"],
+      "@entity": ["./data/db/entity"],
+      "@entity/*": ["./data/db/entity/*"],
+      "@domain": ["./domain"],
+      "@domain/*": ["./domain/*"],
+      "@graphql": ["./api/graphql"],
+      "@graphql/*": ["./api/graphql/*"],
+      "@rest": ["./api/rest"],
+      "@rest/*": ["./api/rest/*"],
+      "@test": ["./test"],
+      "@test/*": ["./test/*"]
+    }
+  },
+  "exclude": ["node_modules", "tsconfig-paths-bootstrap.js"],
+  "include": ["src/**/*.ts"]
+}
