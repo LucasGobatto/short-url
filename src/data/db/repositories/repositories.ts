@@ -1,13 +1,14 @@
 import Container, { Service } from "typedi";
 import { Repository } from "typeorm";
 import { InjectRepository } from "typeorm-typedi-extensions";
-import { UserEntity } from "@entity";
+import { UrlEntity, UserEntity } from "@entity";
 
 @Service()
 export class Repositories {
   constructor(
     @InjectRepository(UserEntity)
-    readonly userRespository: Repository<UserEntity>
+    readonly userRespository: Repository<UserEntity>,
+    @InjectRepository(UrlEntity) readonly urlRepository: Repository<UrlEntity>
   ) {}
 
   static async clear() {
