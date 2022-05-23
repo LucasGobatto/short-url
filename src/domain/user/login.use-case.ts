@@ -5,7 +5,7 @@ import {
   LoginInputModel,
   LoginTypeModel,
   UserTypeModel,
-} from "./model/user.model";
+} from "../model/user.model";
 import { AuthError } from "@core/error";
 import { UserDbDataSource } from "@data/source";
 
