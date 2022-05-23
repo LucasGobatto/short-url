@@ -2,7 +2,7 @@ import { Service } from "typedi";
 
 @Service()
 export class GetOriginalUrlUseCase {
-  exec(path: string) {
+  async exec(path: string) {
     return path;
   }
 }
