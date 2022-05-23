@@ -1,7 +1,8 @@
+import { Service } from "typedi";
+import { Body, Get, JsonController, Post, Param } from "routing-controllers";
 import { CreateShortUrlUseCase, GetOriginalUrlUseCase } from "@domain";
 import { CreateShortUrlInput } from "@domain/model";
-import { Body, Get, JsonController, Post, Param } from "routing-controllers";
-import { Service } from "typedi";
+import { RequestLogger } from "@core/decorators";
 
 @Service()
 @JsonController("/url")
@@ -12,11 +13,13 @@ export class UrlController {
   ) {}
 
   @Post("/create-short-url")
+  @RequestLogger("RequestLogger")
   createShortUrl(@Body() data: CreateShortUrlInput) {
     return this.createShortUrlUseCase.exec(data);
   }
 
   @Get("/short-url/:path")
+  @RequestLogger("RequestLogger")
   getOriginalUrl(@Param("path") path: string) {
     return this.getOriginalUrlUseCase.exec(path);
   }

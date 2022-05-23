@@ -3,7 +3,7 @@ import { CreateShortUrlInput } from "./model";
 
 @Service()
 export class CreateShortUrlUseCase {
-  exec(data: CreateShortUrlInput) {
+  async exec(data: CreateShortUrlInput) {
     return data;
   }
 }
