@@ -1,8 +1,8 @@
 import { CryptoService } from "@core/security/crypto";
 import { UrlDbDatasource } from "@data/source";
 import { Service } from "typedi";
-import { CreateShortUrlInput, ShortUrlResponse } from "../model";
-import { createFullUrl } from "../utils/create-full-url";
+import { CreateShortUrlInput, ShortUrlResponse } from "@domain/model";
+import { createFullUrl } from "@domain/utils/create-full-url";
 
 @Service()
 export class CreateShortUrlUseCase {
