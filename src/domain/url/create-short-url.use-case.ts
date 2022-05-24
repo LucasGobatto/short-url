@@ -6,10 +6,7 @@ import { createFullUrl } from "@domain/utils/create-full-url";
 
 @Service()
 export class CreateShortUrlUseCase {
-  constructor(
-    private readonly urlDbDatasource: UrlDbDatasource,
-    private readonly cryptoService: CryptoService
-  ) {}
+  constructor(private readonly urlDbDatasource: UrlDbDatasource, private readonly cryptoService: CryptoService) {}
 
   async exec(data: CreateShortUrlInput): Promise<ShortUrlResponse> {
     const { url } = data;

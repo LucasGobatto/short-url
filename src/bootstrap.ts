@@ -5,14 +5,7 @@ import { Database } from "./data/db/config/database.config";
 import { GraphQLServerSetup } from "./api/graphql/config/setup";
 import { configTestPaths } from "./test";
 import { RestServerSetup } from "@rest/config/setup";
-import {
-  DATABASE_NAME,
-  DATABASE_PASSWORD,
-  DATABASE_PORT,
-  DATABASE_USERNAME,
-  EnvConfig,
-  PORT,
-} from "@core/env/env.config";
+import { DATABASE_NAME, DATABASE_PASSWORD, DATABASE_PORT, DATABASE_USERNAME, EnvConfig, PORT } from "@core/env/env.config";
 import { Container } from "typedi";
 import { logger } from "@core/logger";
 

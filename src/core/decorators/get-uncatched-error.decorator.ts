@@ -3,16 +3,14 @@ import { DataSourceError, GenericTypeError } from "@core/error";
 type ErrorDecorator = (
   type: Object,
   method: string,
-  descriptor: PropertyDescriptor
+  descriptor: PropertyDescriptor,
 ) => {
   value: (...args: any[]) => Promise<any>;
 };
 
 export function GetUncatchedError(error?: string): ErrorDecorator;
 export function GetUncatchedError(error?: GenericTypeError): ErrorDecorator;
-export function GetUncatchedError(
-  error?: GenericTypeError | string
-): ErrorDecorator {
+export function GetUncatchedError(error?: GenericTypeError | string): ErrorDecorator {
   return function (_: Object, __: string, descriptor: PropertyDescriptor) {
     const originalMethod = descriptor.value;
 

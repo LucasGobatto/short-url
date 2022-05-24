@@ -10,7 +10,7 @@ import { InputError } from "@core/error";
 export class UserDbDataSource {
   constructor(
     @InjectRepository(UserEntity)
-    private readonly repository: Repository<UserEntity>
+    private readonly repository: Repository<UserEntity>,
   ) {}
 
   @GetUncatchedError(InputError)

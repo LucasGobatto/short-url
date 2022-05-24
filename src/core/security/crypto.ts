@@ -6,7 +6,7 @@ import { Inject, Service } from "typedi";
 export class CryptoService {
   constructor(
     @Inject(CRYPTO_BYTE_LENGTH) private readonly byteLength: number,
-    @Inject(CRYPTO_KEY_LENGTH) private readonly keyLength: number
+    @Inject(CRYPTO_KEY_LENGTH) private readonly keyLength: number,
   ) {}
 
   hash(value: string): Promise<string> {

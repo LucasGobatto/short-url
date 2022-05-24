@@ -1,8 +1,8 @@
-import { InputError } from '@core/error';
-import { UrlDbDatasource } from '@data/source';
-import { CreateCustomRouteInput, ShortUrlResponse } from '@domain/model';
-import { createFullUrl } from '@domain/utils/create-full-url';
-import { Service } from 'typedi';
+import { InputError } from "@core/error";
+import { UrlDbDatasource } from "@data/source";
+import { CreateCustomRouteInput, ShortUrlResponse } from "@domain/model";
+import { createFullUrl } from "@domain/utils/create-full-url";
+import { Service } from "typedi";
 
 @Service()
 export class CreateCustomRouteUseCase {
@@ -14,7 +14,7 @@ export class CreateCustomRouteUseCase {
     const existingUrl = await this.urlDbDatasource.findOneByPath(customRoute);
 
     if (existingUrl?.id) {
-      throw new InputError('Custom route already exists');
+      throw new InputError("Custom route already exists");
     }
 
     const savedUrl = await this.urlDbDatasource.save({

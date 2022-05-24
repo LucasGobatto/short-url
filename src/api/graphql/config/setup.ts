@@ -20,9 +20,7 @@ export class GraphQLServerSetup {
 
   private getSchema() {
     return buildSchema({
-      resolvers: [
-        path.join(__dirname, "..", "module", "**", "*.resolver.{js,ts}"),
-      ],
+      resolvers: [path.join(__dirname, "..", "module", "**", "*.resolver.{js,ts}")],
       container: Container,
       authChecker: AuthMiddleware,
     });

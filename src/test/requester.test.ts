@@ -52,11 +52,7 @@ describe("Unit - Test - Requester", () => {
       path,
     });
 
-    const response = await requester.makeRestRequest<ResponseData>(
-      "POST",
-      path,
-      body
-    );
+    const response = await requester.makeRestRequest<ResponseData>("POST", path, body);
 
     expect(response.data).to.be.deep.eq(responseData);
     expect(response.status).to.be.eq(200);

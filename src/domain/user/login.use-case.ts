@@ -10,7 +10,7 @@ export class LoginUseCase {
   constructor(
     private readonly userDbDataSource: UserDbDataSource,
     private readonly jwtService: JWTService,
-    private readonly cryptoService: CryptoService
+    private readonly cryptoService: CryptoService,
   ) {}
 
   async exec(data: LoginInputModel): Promise<LoginTypeModel> {

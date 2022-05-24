@@ -9,11 +9,7 @@ import { logger } from "@core/logger";
 export class AuthMiddleware implements ExpressMiddlewareInterface {
   constructor(private readonly jwtService: JWTService) {}
 
-  async use(
-    request: Request,
-    response: Response,
-    next?: (error?: Error) => any
-  ) {
+  async use(request: Request, response: Response, next?: (error?: Error) => any) {
     try {
       const token = request?.headers?.authorization;
 

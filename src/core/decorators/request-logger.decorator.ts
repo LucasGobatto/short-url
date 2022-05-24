@@ -7,13 +7,7 @@ export function RequestLogger(className: string) {
     return {
       value: async function (...args: any[]) {
         const logParams = {
-          data: JSON.stringify(
-            args.length > 0
-              ? args?.reduce(
-                  (arg: any, conc: any) => (conc = { ...conc, ...arg })
-                )
-              : {}
-          ),
+          data: JSON.stringify(args.length > 0 ? args?.reduce((arg: any, conc: any) => (conc = { ...conc, ...arg })) : {}),
           method,
           className,
         };

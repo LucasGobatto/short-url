@@ -1,11 +1,6 @@
 import { Arg, Authorized, Mutation, Query, Resolver } from "type-graphql";
 import { Service } from "typedi";
-import {
-  CreateUserUseCase,
-  GetOneUserUseCase,
-  LoginUseCase,
-  GetManyUsersUseCase,
-} from "@domain/user";
+import { CreateUserUseCase, GetOneUserUseCase, LoginUseCase, GetManyUsersUseCase } from "@domain/user";
 import { CreateUserInput, LoginInput, UserInput, UsersInput } from "./input";
 import { UsersType, UserType, LoginType } from "./type";
 import { RequestLogger } from "@core/decorators";
@@ -17,7 +12,7 @@ export class UserResolver {
     private readonly createUserUseCase: CreateUserUseCase,
     private readonly getOneUserUseCase: GetOneUserUseCase,
     private readonly loginUseCase: LoginUseCase,
-    private readonly getManyUsersUseCase: GetManyUsersUseCase
+    private readonly getManyUsersUseCase: GetManyUsersUseCase,
   ) {}
 
   @Query(() => UserType, { description: "fetch an especific user" })

@@ -1,21 +1,14 @@
 import { CryptoService } from "@core/security/crypto";
 import { UserEntity } from "@entity";
 import { CreateUserInputModel, UserTypeModel } from "@domain/model";
-import {
-  validateEmail,
-  validatePassword,
-  validatePhone,
-} from "@domain/validation";
+import { validateEmail, validatePassword, validatePhone } from "@domain/validation";
 import { InputError } from "@core/error";
 import { Service } from "typedi";
 import { UserDbDataSource } from "@data/source";
 
 @Service()
 export class CreateUserUseCase {
-  constructor(
-    private readonly userDbDataSource: UserDbDataSource,
-    private readonly cryptoService: CryptoService
-  ) {}
+  constructor(private readonly userDbDataSource: UserDbDataSource, private readonly cryptoService: CryptoService) {}
 
   async exec(data: CreateUserInputModel): Promise<UserTypeModel> {
     const hasUser = await this.userDbDataSource.findOneByEmail(data.email);
