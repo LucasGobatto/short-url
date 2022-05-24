@@ -7,7 +7,7 @@ import { InjectRepository } from "typeorm-typedi-extensions";
 export class UrlDbDatasource {
   constructor(
     @InjectRepository(UrlEntity)
-    private readonly repository: Repository<UrlEntity>
+    private readonly repository: Repository<UrlEntity>,
   ) {}
 
   findOne(id: string) {

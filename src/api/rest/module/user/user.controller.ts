@@ -1,18 +1,6 @@
-import {
-  Post,
-  Body,
-  Get,
-  UseBefore,
-  JsonController,
-  UseAfter,
-} from "routing-controllers";
+import { Post, Body, Get, UseBefore, JsonController, UseAfter } from "routing-controllers";
 import { Service } from "typedi";
-import {
-  LoginUseCase,
-  CreateUserUseCase,
-  GetOneUserUseCase,
-  GetManyUsersUseCase,
-} from "@domain/user";
+import { LoginUseCase, CreateUserUseCase, GetOneUserUseCase, GetManyUsersUseCase } from "@domain/user";
 import {
   CreateUserInputModel,
   LoginInputModel,
@@ -33,7 +21,7 @@ export class UserController {
     private readonly loginUseCase: LoginUseCase,
     private readonly createUserUseCase: CreateUserUseCase,
     private readonly getOneUserUseCase: GetOneUserUseCase,
-    private readonly getManyUsersUseCase: GetManyUsersUseCase
+    private readonly getManyUsersUseCase: GetManyUsersUseCase,
   ) {}
 
   @Post("/login")

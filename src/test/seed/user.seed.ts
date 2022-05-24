@@ -9,21 +9,17 @@ export class UserSeed {
   constructor(
     @InjectRepository(UserEntity)
     private readonly userRepository: Repository<UserEntity>,
-    private readonly cryptoService: CryptoService
+    private readonly cryptoService: CryptoService,
   ) {}
 
   async create(options: Partial<UserEntity>[] = []): Promise<UserEntity[]> {
-    const users = [...new Array(options.length || 5)].map((_, index) =>
-      this.seed(options[index], index + 1)
-    );
+    const users = [...new Array(options.length || 5)].map((_, index) => this.seed(options[index], index + 1));
 
     return this.userRepository.save(await Promise.all(users));
   }
 
   private async seed(options: Partial<UserEntity> = {}, count: number) {
-    options.password = await this.cryptoService.hash(
-      options.password ?? "1234qwer"
-    );
+    options.password = await this.cryptoService.hash(options.password ?? "1234qwer");
 
     const defaultUser = {
       name: `User Name ${count}`,

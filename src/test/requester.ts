@@ -24,10 +24,7 @@ export class Requester {
     this.baseUrl = `http://localhost:${port}`;
   }
 
-  async makeGraphQLRequest<T>(
-    query: string,
-    variables?: { data: any }
-  ): Promise<GraphqlResponse<T>> {
+  async makeGraphQLRequest<T>(query: string, variables?: { data: any }): Promise<GraphqlResponse<T>> {
     const requester = request(this.baseUrl).post("/graphql");
 
     requester.set("Content-Type", "application/json");
@@ -38,11 +35,7 @@ export class Requester {
     return { data: response.body.data, errors: response.body.errors };
   }
 
-  async makeRestRequest<T>(
-    method: HttpMethods,
-    path: string,
-    data?: any
-  ): Promise<AxiosResponse<T, any>> {
+  async makeRestRequest<T>(method: HttpMethods, path: string, data?: any): Promise<AxiosResponse<T, any>> {
     const response = await axios({
       baseURL: this.baseUrl,
       url: path,

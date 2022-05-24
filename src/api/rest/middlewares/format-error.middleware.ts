@@ -2,12 +2,7 @@ import { Request, Response } from "express";
 import { ExpressErrorMiddlewareInterface } from "routing-controllers";
 
 export class FormatErrorMiddleware implements ExpressErrorMiddlewareInterface {
-  error(
-    error: any,
-    _request: Request,
-    response: Response,
-    next?: (error?: Error) => void
-  ) {
+  error(error: any, _request: Request, response: Response, next?: (error?: Error) => void) {
     const isBase = error.base;
 
     if (!isBase) {
