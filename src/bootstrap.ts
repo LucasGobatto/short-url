@@ -8,6 +8,7 @@ import { RestServerSetup } from "@rest/config/setup";
 import { DATABASE_NAME, DATABASE_PASSWORD, DATABASE_PORT, DATABASE_USERNAME, EnvConfig, PORT } from "@core/env/env.config";
 import { Container } from "typedi";
 import { logger } from "@core/logger";
+import cors from "cors";
 
 export async function bootstrap(test = false) {
   try {
@@ -22,6 +23,7 @@ export async function bootstrap(test = false) {
     const database = Container.get(DATABASE_NAME);
 
     const app = express();
+    app.use(cors());
 
     await Database.config({
       port: datatbasePort,

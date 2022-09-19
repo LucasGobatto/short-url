@@ -9,13 +9,15 @@ export class FormatErrorMiddleware implements ExpressErrorMiddlewareInterface {
       response.statusCode = 500;
       response.json({
         error: {
-          error: "Internal Error",
-          details: error.message,
+          details: "Internal Error",
+          message: error.message,
         },
       });
+      next();
+      return;
     }
 
-    response.statusCode = error.code;
+    response.statusCode = error?.code ?? 500;
     response.json({
       error: {
         details: error.details,
