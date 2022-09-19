@@ -3,6 +3,7 @@ import { UrlDbDatasource } from "@data/source";
 import { Service } from "typedi";
 import { CreateShortUrlInput, ShortUrlResponse } from "@domain/model";
 import { createFullUrl } from "@domain/utils/create-full-url";
+import { InputError } from "@core/error";
 
 @Service()
 export class CreateShortUrlUseCase {
@@ -10,6 +11,10 @@ export class CreateShortUrlUseCase {
 
   async exec(data: CreateShortUrlInput): Promise<ShortUrlResponse> {
     const { url } = data;
+
+    if (!url) {
+      throw new InputError();
+    }
 
     const cryptoUrl = await this.cryptoService.hash(url);
 

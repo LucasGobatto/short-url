@@ -19,7 +19,7 @@ export class Database {
       username: param.username,
       password: param.password,
       database: param.database,
-      entities: [__dirname + "/../entity/*.ts"],
+      entities: [__dirname + "./../entity/*.entity.ts"],
       synchronize: true,
     });
   }

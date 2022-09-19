@@ -1,11 +1,13 @@
 import { Service } from "typedi";
-import { Body, Get, JsonController, Post, Param } from "routing-controllers";
+import { Body, Get, JsonController, Post, Param, UseAfter } from "routing-controllers";
 import { CreateShortUrlUseCase, GetOriginalUrlUseCase, CreateCustomRouteUseCase } from "@domain/url";
 import { CreateShortUrlInput, ShortUrlResponse, CreateCustomRouteInput } from "@domain/model";
 import { RequestLogger } from "@core/decorators";
+import { FormatErrorMiddleware } from "@rest/middlewares";
 
 @Service()
 @JsonController()
+@UseAfter(FormatErrorMiddleware)
 export class UrlController {
   constructor(
     private readonly createShortUrlUseCase: CreateShortUrlUseCase,

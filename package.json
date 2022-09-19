@@ -12,11 +12,16 @@
     "docker": "docker-compose up -d",
     "test": "mocha -r ts-node/register -r tsconfig-paths/register --delay src/index.ts --exit"
   },
+  "overrides": {
+    "class-transformer": "0.5.1",
+    "class-validator": "0.13.2"
+  },
   "dependencies": {
     "apollo-server-express": "2.24.0",
     "axios": "0.26.1",
     "chai": "4.3.6",
     "class-validator": "0.13.2",
+    "cors-anywhere": "0.4.4",
     "dotenv": "9.0.1",
     "express": "4.17.1",
     "glob": "8.0.1",
